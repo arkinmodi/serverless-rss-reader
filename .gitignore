@@ -4,6 +4,7 @@
 .settings
 Snap.*.trc
 core.*.dmp
+dependency-reduced-pom.xml
 heapdump.*.phd
 javacore.*.txt
 target/
