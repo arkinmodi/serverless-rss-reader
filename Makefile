@@ -1,6 +1,6 @@
 MVN = ./mvnw
 JAVA = java
-JAR = target/rssaggregator-1.0.0.jar
+JAR = target/rssreader-1.0.0.jar
 
 
 .PHONY: all

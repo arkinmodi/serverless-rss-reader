@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.arkinmodi</groupId>
-  <artifactId>rssaggregator</artifactId>
+  <artifactId>rssreader</artifactId>
   <version>1.0.0</version>
 
   <properties>
@@ -67,7 +67,7 @@
         <configuration>
           <transformers>
             <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-              <mainClass>com.arkinmodi.rssaggregator.Main</mainClass>
+              <mainClass>com.arkinmodi.rssreader.Main</mainClass>
             </transformer>
           </transformers>
         </configuration>
