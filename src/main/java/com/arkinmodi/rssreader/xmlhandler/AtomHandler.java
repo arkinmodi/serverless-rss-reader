@@ -1,16 +1,13 @@
 package com.arkinmodi.rssreader.xmlhandler;
 
-import java.time.ZonedDateTime;
-import java.util.Optional;
-
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
-
 import com.arkinmodi.rssreader.atomdocument.AtomAuthor;
 import com.arkinmodi.rssreader.atomdocument.AtomEntryDocument;
 import com.arkinmodi.rssreader.atomdocument.AtomFeedDocument;
-
+import java.time.ZonedDateTime;
+import java.util.Optional;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 
 public class AtomHandler extends DefaultHandler {
 

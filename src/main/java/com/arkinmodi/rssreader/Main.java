@@ -1,5 +1,8 @@
 package com.arkinmodi.rssreader;
 
+import com.arkinmodi.rssreader.service.RssService;
+import com.arkinmodi.rssreader.service.RssService.RssTypes;
+import com.arkinmodi.rssreader.xmlhandler.AtomHandler;
 import java.io.StringReader;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -9,10 +12,6 @@ import java.time.Duration;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.InputSource;
-
-import com.arkinmodi.rssreader.service.RssService;
-import com.arkinmodi.rssreader.service.RssService.RssTypes;
-import com.arkinmodi.rssreader.xmlhandler.AtomHandler;
 
 class Main {
 
