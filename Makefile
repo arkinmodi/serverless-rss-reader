@@ -14,10 +14,18 @@ build:
 run:
 	$(JAVA) -jar $(JAR)
 
+.PHONY: clean
+clean:
+	$(MVN) clean
+
 .PHONY: spotless
 spotless:
 	$(MVN) spotless:apply
 
-.PHONY: clean
-clean:
-	$(MVN) clean
+.PHONY: prettier
+prettier:
+	npx prettier --write '**/*.{md,yml,yaml}'
+
+.PHONY: yamllint
+yamllint:
+	yamllint --strict .
