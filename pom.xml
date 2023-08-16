@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.arkinmodi</groupId>
-  <artifactId>rssreader</artifactId>
+  <artifactId>serverless-rss-reader</artifactId>
   <version>1.0.0</version>
 
   <properties>

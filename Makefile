@@ -1,10 +1,13 @@
 MVN = ./mvnw
 JAVA = java
-JAR = target/rssreader-1.0.0.jar
+JAR = target/serverless-rss-reader-1.0.0.jar
 
 
 .PHONY: all
 all: build run
+
+.PHONY: lint
+lint: spotless prettier yamllint
 
 .PHONY: build
 build:
@@ -17,6 +20,7 @@ run:
 .PHONY: clean
 clean:
 	$(MVN) clean
+	rm -rf dependency-reduced-pom.xml
 
 .PHONY: spotless
 spotless:
