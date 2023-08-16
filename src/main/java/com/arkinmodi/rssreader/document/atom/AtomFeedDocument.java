@@ -1,4 +1,4 @@
-package com.arkinmodi.rssreader.atomdocument;
+package com.arkinmodi.rssreader.document.atom;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;

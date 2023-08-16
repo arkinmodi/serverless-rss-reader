@@ -1,8 +1,8 @@
 package com.arkinmodi.rssreader.xmlhandler;
 
-import com.arkinmodi.rssreader.atomdocument.AtomAuthor;
-import com.arkinmodi.rssreader.atomdocument.AtomEntryDocument;
-import com.arkinmodi.rssreader.atomdocument.AtomFeedDocument;
+import com.arkinmodi.rssreader.document.atom.AtomAuthor;
+import com.arkinmodi.rssreader.document.atom.AtomEntryDocument;
+import com.arkinmodi.rssreader.document.atom.AtomFeedDocument;
 import java.time.ZonedDateTime;
 import java.util.Optional;
 import org.xml.sax.Attributes;
