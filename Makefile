@@ -22,6 +22,10 @@ clean:
 	$(MVN) clean
 	rm -rf dependency-reduced-pom.xml
 
+.PHONY: update-deps
+update-deps:
+	$(MVN) versions:use-latest-versions
+
 .PHONY: spotless
 spotless:
 	$(MVN) spotless:apply
