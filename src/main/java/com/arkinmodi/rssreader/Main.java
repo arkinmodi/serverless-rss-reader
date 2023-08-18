@@ -51,6 +51,7 @@ class Main {
 
       System.out.println(handler.getFeed().getTitle());
       System.out.println(handler.getFeed().getUpdated());
+      System.out.println(handler.getFeed().getLinks());
 
     } else if (type.equals(RssTypes.RSS2)) {
       // TODO: RSS 2.0
