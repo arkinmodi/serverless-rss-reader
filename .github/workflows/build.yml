@@ -17,6 +17,8 @@ jobs:
           distribution: "corretto"
           java-version: "17"
       - run: ./mvnw --batch-mode --update-snapshots clean package
+        env:
+          DISCORD_BOT_PUBLIC_KEY: ${{ secrets.DISCORD_BOT_PUBLIC_KEY }}
       - uses: actions/upload-artifact@v3
         with:
           name: serverless-rss-reader.jar

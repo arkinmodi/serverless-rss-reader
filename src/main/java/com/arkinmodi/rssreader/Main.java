@@ -2,7 +2,7 @@ package com.arkinmodi.rssreader;
 
 import com.arkinmodi.rssreader.service.RssService;
 import com.arkinmodi.rssreader.service.RssService.RssTypes;
-import com.arkinmodi.rssreader.xmlhandler.AtomHandler;
+import com.arkinmodi.rssreader.xml.AtomHandler;
 import java.io.StringReader;
 import java.net.URI;
 import java.net.http.HttpClient;

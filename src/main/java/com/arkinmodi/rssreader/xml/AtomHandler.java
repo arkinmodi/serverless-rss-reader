@@ -1,4 +1,4 @@
-package com.arkinmodi.rssreader.xmlhandler;
+package com.arkinmodi.rssreader.xml;
 
 import com.arkinmodi.rssreader.document.atom.AtomAuthor.AtomAuthorBuilder;
 import com.arkinmodi.rssreader.document.atom.AtomEntryDocument.AtomEntryDocumentBuilder;
