@@ -25,7 +25,6 @@ public class RssService {
     Element root = doc.getDocumentElement();
 
     if ("rss".equalsIgnoreCase(root.getNodeName())) {
-      System.out.println(root.getAttribute("version"));
       if (root.getAttribute("version").startsWith("2")) {
         return RssTypes.RSS2;
       } else {

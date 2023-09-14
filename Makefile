@@ -4,18 +4,19 @@ JAR = target/serverless-rss-reader-1.0.0.jar
 
 
 .PHONY: all
-all: build run
+all: build
 
 .PHONY: lint
-lint: spotless prettier yamllint
+lint: spotless terraform-fmt prettier yamllint
 
 .PHONY: build
 build:
 	$(MVN) clean package
 
-.PHONY: run
-run:
-	$(JAVA) -jar $(JAR)
+.PHONY: upload-jars
+upload-jars: build
+	echo 'not implemented'
+	exit 1
 
 .PHONY: clean
 clean:
@@ -30,9 +31,13 @@ update-deps:
 spotless:
 	$(MVN) spotless:apply
 
+.PHONY: terraform-fmt
+terraform-fmt:
+	terraform fmt terraform
+
 .PHONY: prettier
 prettier:
-	npx prettier --write '**/*.{md,yml,yaml}'
+	prettier --write '**/*.{md,yml,yaml}'
 
 .PHONY: yamllint
 yamllint:
