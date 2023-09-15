@@ -38,3 +38,10 @@ jobs:
       - uses: actions/setup-node@v3
       - run: npm install prettier
       - run: npx prettier --check '**/*.{md,yml,yaml}'
+
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v2
+      - run: terraform fmt -check terraform

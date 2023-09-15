@@ -20,6 +20,13 @@ public class RssHandler implements RequestHandler<Event, Response> {
 
   @Override
   public Response handleRequest(Event event, Context context) {
+    // NOTE: Sample Atom Feeds
+    // https://www.youtube.com/feeds/videos.xml?channel_id=UCry1ZVKLslbZXuQgsf-3TXg
+    // https://github.com/arkinmodi/serverless-rss-reader/commits/main.atom
+
+    // NOTE: Sample RSS 2.0 Feeds
+    // https://blog.boot.dev/index.xml
+
     String body = "";
     try {
       String testUrl = "https://github.com/arkinmodi/serverless-rss-reader/commits/main.atom";
