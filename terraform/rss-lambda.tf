@@ -24,7 +24,7 @@ resource "aws_lambda_function" "rss_handler" {
 }
 
 resource "aws_lambda_function_url" "rss_handler" {
-  function_name      = var.rss_lambda_function_name
+  function_name      = aws_lambda_function.rss_handler.arn
   authorization_type = "AWS_IAM"
 }
 
