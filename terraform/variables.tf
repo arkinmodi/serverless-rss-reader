@@ -12,3 +12,7 @@ variable "discord_lambda_function_name" {
 variable "rss_lambda_function_name" {
   default = "serverless-rss-reader-rss-handler"
 }
+
+variable "serverless_rss_reader_sqs_name" {
+  default = "serverless-rss-reader"
+}

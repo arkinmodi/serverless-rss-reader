@@ -3,11 +3,12 @@ package com.arkinmodi.rssreader.discord.command;
 import java.util.List;
 
 public class Options {
-  ApplicationCommandOptionType type;
-  String name;
-  String description;
-  boolean required;
-  List<Choices> choices;
+
+  private ApplicationCommandOptionType type;
+  private String name;
+  private String description;
+  private boolean required;
+  private List<Choices> choices;
 
   public ApplicationCommandOptionType getType() {
     return type;

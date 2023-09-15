@@ -5,8 +5,10 @@ import com.google.gson.annotations.SerializedName;
 public enum ApplicationCommandTypes {
   @SerializedName("1")
   CHAT_INPUT(1),
+
   @SerializedName("2")
   USER(2),
+
   @SerializedName("3")
   MESSAGE(3);
 

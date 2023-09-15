@@ -1,8 +1,9 @@
 package com.arkinmodi.rssreader.discord.command;
 
 public class Choices {
-  String name;
-  String value;
+
+  private String name;
+  private String value;
 
   public String getName() {
     return name;

@@ -4,12 +4,15 @@ import java.util.List;
 
 public class ApplicationCommand {
 
-  ApplicationCommandTypes type;
-  String name;
-  String description;
-  List<Options> options;
+  private ApplicationCommandTypes type;
+  private String name;
+  private String description;
+  private List<Options> options;
 
   public ApplicationCommandTypes getType() {
+    if (type == null) {
+      type = ApplicationCommandTypes.CHAT_INPUT;
+    }
     return type;
   }
 
