@@ -32,7 +32,7 @@ resource "aws_lambda_function" "discord_handler" {
 }
 
 resource "aws_lambda_function_url" "discord_handler" {
-  function_name      = var.discord_lambda_function_name
+  function_name      = aws_lambda_function.discord_handler.arn
   authorization_type = "NONE"
 }
 
