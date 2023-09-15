@@ -31,6 +31,8 @@ public class DiscordHandler implements RequestHandler<Event, Response> {
       requestBodyString = event.getBody();
     }
 
+    System.out.println("BODY: " + requestBodyString);
+
     try {
       interactionVerify.verify(event.getHeaders(), event.getBody());
     } catch (BadSignatureException e) {
@@ -40,12 +42,17 @@ public class DiscordHandler implements RequestHandler<Event, Response> {
     ApplicationCommand requestBody = gson.fromJson(requestBodyString, ApplicationCommand.class);
 
     if (ApplicationCommandTypes.CHAT_INPUT.equals(requestBody.getType())) {
-      return new ResponseBuilder().statusCode(200).body(gson.toJson(Map.of("type", 1))).build();
+      return new ResponseBuilder()
+          .statusCode(200)
+          .header("content-type", "application/json")
+          .body(gson.toJson(Map.of("type", 1)))
+          .build();
     }
 
-    ResponseBuilder response = new ResponseBuilder();
-    response.statusCode(200);
-    response.body("Hello from the Discord Handler!\n\n" + requestBody.toString() + "\n");
-    return response.build();
+    return new ResponseBuilder()
+        .statusCode(200)
+        .header("content-type", "application/json")
+        .body(gson.toJson(Map.of("type", 5)))
+        .build();
   }
 }

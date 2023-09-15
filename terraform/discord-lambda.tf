@@ -24,8 +24,9 @@ resource "aws_lambda_function" "discord_handler" {
 
   environment {
     variables = {
+      AWS_SQS_NAME           = var.serverless_rss_reader_sqs_name
+      AWS_SQS_URL            = aws_sqs_queue.serverless_rss_reader.url
       DISCORD_BOT_PUBLIC_KEY = var.discord_bot_public_key
-      # RSS_LAMBDA_URL         = aws_lambda_function_url.rss_handler.function_url
     }
   }
 }
