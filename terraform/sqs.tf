@@ -1,5 +1,6 @@
 resource "aws_sqs_queue" "serverless_rss_reader" {
-  name = var.serverless_rss_reader_sqs_name
+  name                       = var.serverless_rss_reader_sqs_name
+  visibility_timeout_seconds = 60
 }
 
 resource "aws_lambda_event_source_mapping" "rss_handler" {
