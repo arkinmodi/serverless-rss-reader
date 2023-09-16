@@ -32,6 +32,8 @@ public class DiscordHandler implements RequestHandler<Event, Response> {
     }
 
     System.out.println("BODY: " + requestBodyString);
+    System.out.println("HEADER: " + event.getHeaders());
+    System.out.println("ENCODED: " + event.isBase64Encoded());
 
     try {
       interactionVerify.verify(event.getHeaders(), event.getBody());
