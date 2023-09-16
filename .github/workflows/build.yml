@@ -42,18 +42,16 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: serverless-rss-reader.jar
-
+      - run: mv -v serverless-rss-reader-?.?.?.jar serverless-rss-reader.jar
       - uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-2
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME_ARN }}
-
       - run: >
           aws lambda update-function-code
           --function-name $DISCORD_LAMBDA_FUNCTION_NAME
-          "--zip fileb://serverless-rss-reader-*.jar"
-
+          --zip-file fileb://serverless-rss-reader.jar
       - run: >
           aws lambda update-function-code
           --function-name $RSS_LAMBDA_FUNCTION_NAME
-          "--zip fileb://serverless-rss-reader-*.jar"
+          --zip-file fileb://serverless-rss-reader.jar
