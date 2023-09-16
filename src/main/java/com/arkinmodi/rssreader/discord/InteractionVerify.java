@@ -14,8 +14,8 @@ public class InteractionVerify {
   }
 
   public void verify(Map<String, String> headers, String body) throws BadSignatureException {
-    String signature = headers.get("X-Signature-Ed25519");
-    String timestamp = headers.get("X-Signature-Timestamp");
+    String signature = headers.get("x-signature-ed25519");
+    String timestamp = headers.get("x-signature-timestamp");
 
     byte[] data = (timestamp + body).getBytes(StandardCharsets.UTF_8);
     if (!Crypto.signVerify(this.publicKey, data, hexStringToByteArray(signature))) {
