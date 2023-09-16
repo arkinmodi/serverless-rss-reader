@@ -1,7 +1,7 @@
-MVN = ./mvnw
-JAVA = java
+DISCORD_LAMBDA_FUNCTION_NAME = serverless-rss-reader-discord-handler
 JAR = target/serverless-rss-reader-1.0.0.jar
-
+MVN = ./mvnw
+RSS_LAMBDA_FUNCTION_NAME = serverless-rss-reader-rss-handler
 
 .PHONY: all
 all: build
@@ -13,10 +13,20 @@ lint: spotless terraform-fmt prettier yamllint
 build:
 	$(MVN) clean package
 
-.PHONY: upload-jars
-upload-jars: build
-	echo 'not implemented'
-	exit 1
+.PHONY: update-lambdas
+update-lambdas: update-discord-lambda update-rss-lambda
+
+.PHONY: update-discord-lambda
+update-discord-lambda: build
+	aws lambda update-function-code \
+		--function-name $(DISCORD_LAMBDA_FUNCTION_NAME) \
+		--zip-file fileb://$(JAR)
+
+.PHONY: update-rss-lambda
+update-rss-lambda: build
+	aws lambda update-function-code \
+		--function-name $(RSS_LAMBDA_FUNCTION_NAME) \
+		--zip-file fileb://$(JAR)
 
 .PHONY: clean
 clean:

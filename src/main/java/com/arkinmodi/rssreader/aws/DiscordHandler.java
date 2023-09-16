@@ -5,6 +5,7 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.arkinmodi.rssreader.aws.Response.ResponseBuilder;
 import com.arkinmodi.rssreader.discord.InteractionVerify;
 import com.arkinmodi.rssreader.discord.InteractionVerify.BadSignatureException;
+import com.arkinmodi.rssreader.discord.InteractionVerify.MissingHeaderException;
 import com.arkinmodi.rssreader.discord.command.ApplicationCommand;
 import com.arkinmodi.rssreader.discord.command.ApplicationCommandTypes;
 import com.google.gson.Gson;
@@ -40,6 +41,9 @@ public class DiscordHandler implements RequestHandler<Event, Response> {
     } catch (BadSignatureException e) {
       System.out.println("RETURNING 401 ERROR -- " + e.getMessage());
       return new ResponseBuilder().statusCode(401).body(e.getMessage()).build();
+    } catch (MissingHeaderException e) {
+      System.out.println("RETURNING 400 ERROR -- " + e.getMessage());
+      return new ResponseBuilder().statusCode(400).body(e.getMessage()).build();
     }
 
     ApplicationCommand requestBody = gson.fromJson(requestBodyString, ApplicationCommand.class);

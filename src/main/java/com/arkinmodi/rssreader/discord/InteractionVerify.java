@@ -13,9 +13,16 @@ public class InteractionVerify {
     this.publicKey = Crypto.signingPublicKey(hexStringToByteArray(publicKey));
   }
 
-  public void verify(Map<String, String> headers, String body) throws BadSignatureException {
+  public void verify(Map<String, String> headers, String body)
+      throws BadSignatureException, MissingHeaderException {
     String signature = headers.get("x-signature-ed25519");
     String timestamp = headers.get("x-signature-timestamp");
+
+    if (signature == null) {
+      throw new MissingHeaderException("Missing x-signature-ed25519 Header");
+    } else if (timestamp == null) {
+      throw new MissingHeaderException("Missing x-signature-timestamp Header");
+    }
 
     byte[] data = (timestamp + body).getBytes(StandardCharsets.UTF_8);
     if (!Crypto.signVerify(this.publicKey, data, hexStringToByteArray(signature))) {
@@ -39,6 +46,16 @@ public class InteractionVerify {
     }
 
     BadSignatureException(String msg, Throwable err) {
+      super(msg, err);
+    }
+  }
+
+  public class MissingHeaderException extends Exception {
+    MissingHeaderException(String msg) {
+      super(msg);
+    }
+
+    MissingHeaderException(String msg, Throwable err) {
       super(msg, err);
     }
   }
