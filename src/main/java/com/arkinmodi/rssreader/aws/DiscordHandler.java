@@ -38,12 +38,14 @@ public class DiscordHandler implements RequestHandler<Event, Response> {
     try {
       interactionVerify.verify(event.getHeaders(), event.getBody());
     } catch (BadSignatureException e) {
+      System.out.println("RETURNING 401 ERROR -- " + e.getMessage());
       return new ResponseBuilder().statusCode(401).body(e.getMessage()).build();
     }
 
     ApplicationCommand requestBody = gson.fromJson(requestBodyString, ApplicationCommand.class);
 
     if (ApplicationCommandTypes.CHAT_INPUT.equals(requestBody.getType())) {
+      System.out.println("RETURNING 200 TYPE 1 SUCCESS");
       return new ResponseBuilder()
           .statusCode(200)
           .header("content-type", "application/json")
@@ -51,6 +53,7 @@ public class DiscordHandler implements RequestHandler<Event, Response> {
           .build();
     }
 
+    System.out.println("RETURNING 200 TYPE 5 SUCCESS");
     return new ResponseBuilder()
         .statusCode(200)
         .header("content-type", "application/json")
