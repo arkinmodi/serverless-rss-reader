@@ -46,7 +46,8 @@ public class DiscordHandler implements RequestHandler<Event, Response> {
       return new ResponseBuilder().statusCode(400).body(e.getMessage()).build();
     }
 
-    ApplicationCommand requestBody = gson.fromJson(requestBodyString, ApplicationCommand.class);
+    final ApplicationCommand requestBody =
+        gson.fromJson(requestBodyString, ApplicationCommand.class);
 
     if (ApplicationCommandTypes.CHAT_INPUT.equals(requestBody.getType())) {
       System.out.println("RETURNING 200 TYPE 1 SUCCESS");

@@ -1,5 +1,6 @@
 .DS_Store
 .classpath
+.env*
 .project
 .settings
 .terraform.lock.hcl

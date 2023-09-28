@@ -13,6 +13,10 @@ lint: spotless terraform-fmt prettier yamllint
 build:
 	$(MVN) clean package
 
+.PHONY: test
+test:
+	$(MVN) clean test jacoco:report
+
 .PHONY: update-lambdas
 update-lambdas: update-discord-lambda update-rss-lambda
 
