@@ -25,12 +25,13 @@ public class InteractionVerify {
     }
 
     final byte[] data = (timestamp + body).getBytes(StandardCharsets.UTF_8);
-    if (!Crypto.signVerify(this.publicKey, data, hexStringToByteArray(signature))) {
+    if (!Crypto.signVerify(publicKey, data, hexStringToByteArray(signature))) {
       throw new BadSignatureException("Invalid Request Signature");
     }
   }
 
   private byte[] hexStringToByteArray(String s) {
+    // https://www.geeksforgeeks.org/java-program-to-convert-hex-string-to-byte-array/
     final int len = s.length();
     final byte[] data = new byte[len / 2];
     for (int i = 0; i < len; i += 2) {
@@ -44,19 +45,11 @@ public class InteractionVerify {
     BadSignatureException(String msg) {
       super(msg);
     }
-
-    BadSignatureException(String msg, Throwable err) {
-      super(msg, err);
-    }
   }
 
   public class MissingHeaderException extends Exception {
     MissingHeaderException(String msg) {
       super(msg);
-    }
-
-    MissingHeaderException(String msg, Throwable err) {
-      super(msg, err);
     }
   }
 }
