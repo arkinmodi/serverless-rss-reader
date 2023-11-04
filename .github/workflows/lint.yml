@@ -1,0 +1,38 @@
+---
+name: Linting
+"on":
+  pull_request:
+  push:
+    branches:
+      - main
+      - placeholder-lambda
+
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+      - run: python3 -m pip install yamllint
+      - run: python3 -m yamllint --strict .
+
+  spotless:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v3
+        with:
+          cache: "maven"
+          distribution: "corretto"
+          java-version: "17"
+      - run: ./mvnw --batch-mode --update-snapshots spotless:check
+
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm install prettier
+      - run: npx prettier --check '**/*.{md,yml,yaml}'

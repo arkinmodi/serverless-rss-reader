@@ -1,0 +1,6 @@
+- use AWS lambda
+- discord bot --- discord is the frontend
+    - discord has an REST API
+    - discord slash commands
+- use CRON job for daily update
+    - only send message to discord if there is an updates to the rss feeds

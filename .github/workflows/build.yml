@@ -1,0 +1,25 @@
+---
+name: Test & Build
+"on":
+  pull_request:
+  push:
+    branches:
+      - main
+      - placeholder-lambda
+  workflow_dispatch:
+
+jobs:
+  test_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v3
+        with:
+          cache: "maven"
+          distribution: "corretto"
+          java-version: "17"
+      - run: ./mvnw --batch-mode --update-snapshots clean package
+      - uses: actions/upload-artifact@v3
+        with:
+          name: serverless-rss-reader-placeholder.jar
+          path: target/serverless-rss-reader-placeholder-*.jar
