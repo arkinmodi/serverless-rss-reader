@@ -26,7 +26,7 @@ jobs:
         with:
           cache: "maven"
           distribution: "corretto"
-          java-version: "17"
+          java-version: "21"
       - run: ./mvnw --batch-mode --update-snapshots spotless:check
 
   prettier:
