@@ -19,7 +19,7 @@ resource "aws_lambda_function" "rss_handler" {
   filename      = "${path.module}/data/serverless-rss-reader-placeholder-1.0.0.jar"
   role          = aws_iam_role.rss_handler.arn
   handler       = "com.arkinmodi.rssreader.aws.DiscordHandler::handleRequest"
-  runtime       = "java17"
+  runtime       = "java21"
   timeout       = 60
 }
 
