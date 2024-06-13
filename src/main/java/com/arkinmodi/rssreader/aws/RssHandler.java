@@ -59,11 +59,11 @@ public class RssHandler implements RequestHandler<Event, Response> {
         System.out.println(handler.getFeed().getLinks());
 
         body =
-            String.format(
-                "Title: %s\nUpdated: %s\nLinks: %s\n",
-                handler.getFeed().getTitle(),
-                handler.getFeed().getUpdated().toString(),
-                handler.getFeed().getLinks().toString());
+            "Title: %s\nUpdated: %s\nLinks: %s\n"
+                .formatted(
+                    handler.getFeed().getTitle(),
+                    handler.getFeed().getUpdated().toString(),
+                    handler.getFeed().getLinks().toString());
 
       } else if (type.equals(RssTypes.RSS2)) {
         // TODO: RSS 2.0
