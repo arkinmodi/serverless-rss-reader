@@ -8,6 +8,7 @@ import com.arkinmodi.rssreader.discord.InteractionVerify.BadSignatureException;
 import com.arkinmodi.rssreader.discord.InteractionVerify.MissingHeaderException;
 import com.arkinmodi.rssreader.discord.command.ApplicationCommand;
 import com.arkinmodi.rssreader.discord.command.ApplicationCommandTypes;
+import com.arkinmodi.rssreader.util.EnvironmentUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.Base64;
@@ -15,12 +16,15 @@ import java.util.Map;
 
 public class DiscordHandler implements RequestHandler<Event, Response> {
 
+  private final EnvironmentUtil environmentUtil;
   private final Gson gson;
   private final InteractionVerify interactionVerify;
 
   public DiscordHandler() {
+    this.environmentUtil = new EnvironmentUtil();
     this.gson = new GsonBuilder().create();
-    this.interactionVerify = new InteractionVerify(System.getenv("DISCORD_BOT_PUBLIC_KEY"));
+    this.interactionVerify =
+        new InteractionVerify(environmentUtil.getEnv("DISCORD_BOT_PUBLIC_KEY"));
   }
 
   @Override
