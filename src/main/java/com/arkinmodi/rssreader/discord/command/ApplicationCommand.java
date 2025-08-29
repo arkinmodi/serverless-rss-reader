@@ -45,8 +45,7 @@ public class ApplicationCommand {
   }
 
   public String toString() {
-    return String.format(
-        "ApplicationCommand[type=%s, name=%s, description=%s, options=%s]",
-        type, name, description, options);
+    return "ApplicationCommand[type=%s, name=%s, description=%s, options=%s]"
+        .formatted(type, name, description, options);
   }
 }

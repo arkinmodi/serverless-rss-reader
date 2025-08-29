@@ -22,6 +22,6 @@ public class Choices {
   }
 
   public String toString() {
-    return String.format("Choices[name=%s, value=%s]", name, value);
+    return "Choices[name=%s, value=%s]".formatted(name, value);
   }
 }
