@@ -27,7 +27,7 @@ jobs:
           distribution: "corretto"
           java-version: "21"
       - run: ./mvnw --batch-mode --update-snapshots clean package
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: serverless-rss-reader.jar
           path: target/serverless-rss-reader-*.jar
@@ -42,7 +42,7 @@ jobs:
       DISCORD_LAMBDA_FUNCTION_NAME: serverless-rss-reader-discord-handler
       RSS_LAMBDA_FUNCTION_NAME: serverless-rss-reader-rss-handler
     steps:
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v6
         with:
           name: serverless-rss-reader.jar
       - run: mv -v serverless-rss-reader-?.?.?.jar serverless-rss-reader.jar
