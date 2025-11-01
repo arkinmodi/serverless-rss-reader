@@ -17,7 +17,7 @@
       <dependency>
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
-        <version>6.0.0</version>
+        <version>6.0.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -112,7 +112,7 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.13</version>
+        <version>0.8.14</version>
         <executions>
           <execution>
             <goals>
