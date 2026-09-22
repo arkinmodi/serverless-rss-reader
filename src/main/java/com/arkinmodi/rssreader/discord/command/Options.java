@@ -51,8 +51,7 @@ public class Options {
   }
 
   public String toString() {
-    return String.format(
-        "Options[name=%s, description=%s, required=%b choices=%s]",
-        name, description, required, choices);
+    return "Options[name=%s, description=%s, required=%b choices=%s]"
+        .formatted(name, description, required, choices);
   }
 }
